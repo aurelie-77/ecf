@@ -1,0 +1,30 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@200&family=Montserrat:wght@300&family=Poppins:wght@100&family=Roboto&family=Roboto+Slab:wght@300&display=swap');
+
+h1{
+    font-family: 'Poppins', sans-serif;
+}
+
+.card-title {
+    color: #DC143C;
+}
+
+a {
+    color:#F08080;
+}
+h4, h3 {
+    color:#F08080;
+}
+h5{
+    text:bold;
+    color:red;
+}
+.tde {
+    height:20px;
+    width:20px;
+    cursor:pointer;
+}
+
+#glob{
+    display:flex;
+}
