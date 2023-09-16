@@ -3,7 +3,7 @@
         <img src="<?=$imagePath = 'uploads/annonces/' . $row['image'];?>" class="card-img-top" alt="<?=$row['title']?>"
             width="200" height="200">
 
-        <div class="card-body">
+        <div class="card-body text-center">
             <h5 class="card-title"><?= $row["mark"].' '.($row["title"]) ?></h5>
             <p class="card-text bold"><?= ($row["price"]) ?></p>
             <p class="card-text"><?= ($row["content"]) ?></p>

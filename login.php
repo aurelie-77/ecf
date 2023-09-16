@@ -33,8 +33,6 @@ $messages = [];
 }
 ?>
 
-?>
-
 
 <h1>Connexion</h1>
 
