@@ -70,36 +70,8 @@ require_once __DIR__ . "/templates/header.php";
     <p class=" lead"><?=$annonce['content'] ?></p>
     <p class=" lead"><?=$annonce['km'] ?></p>
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <!-- Bouton pour afficher le formulaire de contact -->
-        <button class="btn btn-primary btn-lg px-4 me-md-2" id="contactButton<?=$annonce['id']?>">Contacter un
-            vendeur</button>
         <a href="nos_annonces.php">Retour</a>
     </div>
 
-    <!-- Formulaire de contact  -->
-    <form class="formulaire-contact" id="contactForm<?=$annonce['id']?>" style="display: none;">
-        <h2>Contactez le vendeur</h2>
-        <input type="hidden" name="annonce_id" value="<?=$annonce['id']?>">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br>
-        <label for="email">E-mail :</label>
-        <input type="email" id="email" name="email" required><br>
-        <label for="telephone">Téléphone :</label>
-        <input type="text" id="telephone" name="telephone"><br>
-        <label for="message">Message :</label>
-        <textarea id="message" name="message" rows="4" required></textarea><br>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
-    </form>
 
-</div>
-
-<!-- Script JavaScript pour afficher le formulaire de contact -->
-<script>
-document.getElementById("contactButton<?=$annonce['id']?>").addEventListener("click", function(event) {
-    event.preventDefault();
-    var contactForm = document.getElementById("contactForm<?=$annonce['id']?>");
-    contactForm.style.display = "block";
-
-});
-</script>
-<?php require_once __DIR__ . "/templates/footer.php"; ?>
+    <?php require_once __DIR__ . "/templates/footer.php"; ?>

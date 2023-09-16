@@ -1,13 +1,25 @@
 <?php 
-require_once __DIR__."/lib/config.php";
+    require_once('templates/header.php');
+    require_once('lib/annonce.php');
+    require_once('lib/config.php');
+    require_once('lib/pdo.php');
 
-require_once __DIR__."/templates/header.php"; 
+    $annonces = getAnnonces($pdo);
 
+    if (!empty($_POST)) {
+        $destinataire = '';
+        $expediteur = $_POST['email'];
+        $objet = $_POST['cars'];
+        $headers = "Content-Type: text/plain; charset=utf-8\r\n";
+        $headers .= 'From: <'.$_POST['name']. ' ' .$_POST['firstname'].'>'."\n";
+        $message = $_POST['message'];
 
-
-
-
-
+        if (mail($destinataire, $objet, $message, $headers)) {
+            echo 'Votre message a bien été envoye';
+        } else {
+            echo 'Votre message n\'a pas été envoyé';
+        }
+    }
 ?>
 
 
@@ -15,20 +27,37 @@ require_once __DIR__."/templates/header.php";
     <title>Formulaire de Contact</title>
 </head>
 
-<body>
-    <h1>Contactez-nous</h1>
-    <form action="traitement.php" method="POST">
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br><br>
+<<h1 class="text-center mb-3">Formulaire de contact</h1>
 
-        <label for="email">E-mail :</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="message">Message :</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-
-        <input type="submit" value="Envoyer">
+    <form method="POST" enctype="multipart/form-data" class="form-contact">
+        <div>
+            <label for="name">Votre nom</label>
+            <input type="text" name="name" id="name" class="mb-2 ms-2 form-control" required>
+        </div>
+        <div>
+            <label for="firstname">Votre prénom</label>
+            <input type="text" name="firstname" id="firstname" class="mb-2 ms-2 form-control" required>
+        </div>
+        <div>
+            <label for="email">Votre adresse mail</label>
+            <input type="text" name="email" id="email" class="mb-2 ms-2 form-control" required>
+        </div>
+        <div>
+            <label for="vehicules">Sélectionnez la voiture</label>
+            <select name="vehicules" id="vehicules" class="mb-2 ms-2 form-select list-vehicules">
+                <?php foreach ($annonces as $annonce) { ?>
+                <option value="<?=$annonce['mark']. ' ' .$annonce['title'] ?>">
+                    <?=$annonce['mark']. ' ' .$annonce['title']; ?></option>
+                <?php } ?>
+            </select>
+        </div>
+        <div>
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message" cols="30" rows="3" class="form-control form-text" required></textarea>
+        </div>
+        <input type="submit" value="Envoyer" name="sendMail" class="btn btn-outline-primary me-2 mt-3">
     </form>
-</body>
 
-</html>
+    <?php 
+    require_once('templates/footer.php');
+?>
