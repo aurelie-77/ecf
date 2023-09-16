@@ -65,7 +65,7 @@ if (isset($_GET['page'])) {
     </ul>
 </nav>
 
-
+<?php require_once __DIR__ . "/templates/footer.php"; ?>
 
 
 

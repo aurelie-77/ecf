@@ -16,11 +16,12 @@ function verifyUserLoginPassword(PDO $pdo, string $email, string $password):arra
 }
 
 //ajout d'un compte employé
-function addUser(PDO $pdo,  string $email, string $password, string $first_name, string $last_name, $role = "user") {
+function addUser(PDO $pdo,  string $email, string $password, string $first_name, string $last_name, $role = 'user') {
     $sql = "INSERT INTO `users2` (`email`, `password`,`first_name`, `last_name`, `role`) VALUES (:first_name, :last_name, :email, :password, :role);";
     $query = $pdo->prepare($sql);
 
     $password = password_hash($password, PASSWORD_DEFAULT);//mot de passe stocké en bdd de maniere securisée//
+    
     $query->bindParam(':email', $email, PDO::PARAM_STR);
     $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->bindParam(':first_name', $first_name, PDO::PARAM_STR);

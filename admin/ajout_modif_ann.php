@@ -37,7 +37,7 @@ if (isset($_POST['saveAnnonce'])) { //Affichage du formulaire si il est plein si
     $fileName1 = null;
     $fileName2 = null;
     $fileName3 = null;
-    //Si un fichier a été envoye
+    //Si un fichier a été envoye tmp est un emplacement temporaire sur le serveur
     if(isset($_FILES['file']['tmp_name']) && $_FILES['file']['tmp_name'] != '') {
         //La méthode getimagesize retourne false si le fichier n'est pas une image
         $checkImage = getimagesize($_FILES['file']['tmp_name']);
@@ -80,7 +80,7 @@ if (isset($_POST['saveAnnonce'])) { //Affichage du formulaire si il est plein si
             $fileName1 = slugify(basename($_FILES["file1"]["name"]));
             $fileName1 = uniqid().'-'. $fileName1;// Uniqid permet de créer un nom unique pour chaque fichier
 
-            if (move_uploaded_file($_FILES["file"]["tmp_name"], dirname(__DIR__)._ANNONCES_IMAGES_FOLDER_ . $fileName1)) {
+            if (move_uploaded_file($_FILES["file1"]["tmp_name"], dirname(__DIR__)._ANNONCES_IMAGES_FOLDER_ . $fileName1)) {
                 if (isset($_POST['image1'])) {
                     //On supprime l'ancienne image si on poste une nouvelle
                     unlink(dirname(__DIR__)._ANNONCES_IMAGES_FOLDER_.$_POST['image1']);
@@ -285,28 +285,28 @@ if (isset($_POST['saveAnnonce'])) { //Affichage du formulaire si il est plein si
     </p>
 
 
-    <?php if (isset($_GET['id']) && isset($annonce['image1'])) { ?>
+    <?php if (isset($_GET['id']) && isset($annonce['image2'])) { ?>
     <p>
-        <img src="<?=_ANNONCES_IMAGES_FOLDER_ . $annonce['image1'] ?>" width="100">
+        <img src="<?=_ANNONCES_IMAGES_FOLDER_ . $annonce['image2'] ?>" width="100">
         <label for="delete_image2">Supprimer l'image</label>
         <input type="checkbox" name="delete_image2" id="delete_image2">
         <input type="hidden" name="image1" value="<?= $annonce['image2']; ?>">
     </p>
     <?php } ?>
     <p>
-        <input type="file" name="file1" id="file1">
+        <input type="file" name="file2" id="file2">
     </p>
 
-    <?php if (isset($_GET['id']) && isset($annonce['image2'])) { ?>
+    <?php if (isset($_GET['id']) && isset($annonce['image3'])) { ?>
     <p>
-        <img src="<?= _ANNONCES_IMAGES_FOLDER_ . $annonce['image2'] ?>" width="100">
+        <img src="<?= _ANNONCES_IMAGES_FOLDER_ . $annonce['image3'] ?>" width="100">
         <label for="delete_image3">Supprimer l'image</label>
         <input type="checkbox" name="delete_image3" id="delete_image3">
-        <input type="hidden" name="image2" value="<?= $annonce['image2']; ?>">
+        <input type="hidden" name="image3" value="<?= $annonce['image3']; ?>">
     </p>
     <?php } ?>
     <p>
-        <input type="file" name="file2" id="file2">
+        <input type="file" name="file3" id="file3">
     </p>
 
     <input type="submit" value="Enregistrer" name="saveAnnonce" class="btn btn-primary">

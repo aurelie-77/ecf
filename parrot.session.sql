@@ -23,13 +23,13 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
 
 
 INSERT INTO `vehicules` (`mark`, `title`, `price`, `km`, `year`, `content`, `image`  ) VALUES
-('audi', 'A6sline', '21000 €', '175000 km', 'Année 2019','berline, boite automatique, radar de recul gps, noir', 'audi.jpg'),
-('Renault', 'clio', '10000 €', '190000 km', ' Année 2014','citadine, boite manuelle, radar de recul, gps, regulateur de vitesse, gris', 'renault.jpg'),
-('Mercedes', 'cabriolet', '32000 €', '188000 Km ', 'Année 2019','Berline, boite automatique radar de recul, gps, gris', 'mercedes.jpg'),
-('Jeep', '4x4','19500 €', '110000 Km', 'Année 2010', 'suv, boite manuelle, GPS noir', 'jeep.jpg'),
-('Peugeot','307', '21000 €', '175000 Km','Année 2019', 'berline boite manuelle radar derecul gps bleu', NULL),
-('Citroen', 'Ds', '5500 €', '154000 km', 'Année 2012', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores, amet.', NULL),
-('Renault', 'Trafic', '7500 €', '250000 km', 'Année 2008', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores', NULL);
+('Audi', 'A6sline', '21000 €', '175000 km', 'Année 2019','Berline, Diesel, boite automatique, radar de recul, GPS, noir', 'audi.jpg'),
+('Renault', 'clio', '10000 €', '190000 km', ' Année 2014','Citadine, Essence, boite manuelle, radar de recul, GPS, régulateur de vitesse, gris', 'renault.jpg'),
+('Mercedes', 'cabriolet', '32000 €', '188000 Km ', 'Année 2019','Berline, Essence, boite automatique, régulateur et limiteur de vitesse, GPS, gris', 'mercedes.jpg'),
+('Jeep', '4x4','19500 €', '110000 Km', 'Année 2010', 'SUV, Diesel, boite manuelle, GPS, noir', 'jeep.jpg'),
+('Peugeot','307', '21000 €', '175000 Km','Année 2019', 'Berline, Essence, boite manuelle,  GPS, bleu', NULL),
+('Citroen', 'Ds', '5500 €', '154000 km', 'Année 2012', 'Lorem ipsum dolor, sit amet consectetur, adipisicing elit. Dolores, amet.', NULL),
+('Renault', 'Trafic', '7500 €', '250000 km', 'Année 2008', 'Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Dolores', NULL);
 
 ALTER TABLE vehicules
 ADD image1 VARCHAR(155), ADD image2 VARCHAR(155), ADD image3 VARCHAR(155);

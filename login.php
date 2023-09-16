@@ -4,30 +4,34 @@ require_once 'lib/session.php';
 require_once 'lib/pdo.php';
 require_once 'lib/user.php';
 
+
 require_once 'templates/header.php';
 
 
 $errors = [];
 $messages = [];
 
+  //Vérification que le formulaire a bien été envoyé
+  if (isset($_POST["loginUser"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-if (isset($_POST['loginUser'])) {
-
-    $user = verifyUserLoginPassword($pdo, $_POST['email'], $_POST['password']);
-
+    $user = verifyUserLoginPassword($pdo, $email, $password);
     if ($user) {
         session_regenerate_id(true);
-        $_SESSION['user'] = $user;
-        if ($user['role'] === 'admin') {
+        $_SESSION['user'] = $user; //Session qui permet de garder en mémoire qui est connecté
+        if ($user['role'] === 'user') {
+            header('location: employe/index2.php'); // Redirection si l'user est un salarié
+        } elseif ($user['role'] === 'null') {
             header('location: admin/index.php');
-        } else {
-            header('location: admin/annonces.php');
+        } elseif ($user['role'] === 'admin') {
+            header('location: admin/index.php'); // Redirection si l'user est un admin
         }
     } else {
-        $errors[] = 'Email ou mot de passe incorrect';
+        $errors[] = "Email ou mot de passe incorrect";
     }
-
 }
+?>
 
 ?>
 

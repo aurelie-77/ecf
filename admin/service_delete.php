@@ -36,4 +36,5 @@ if($service) {
         <?= $error; ?>
     </div>
     <?php } ?>
+    <a href="services.php">Retour</a>
 </div>

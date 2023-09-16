@@ -26,9 +26,9 @@ if (isset($_GET['id'])) {
     if ($comment === false) {
         $errors[] = "L'employé n'existe pas";
     }
-    $pageTitle = "Formulaire modification d'un employé";
+    $pageTitle = "Formulaire modification d'un commentaire";
 } else {
-    $pageTitle = "Formulaire ajout d'un employé";
+    $pageTitle = "Formulaire ajout d'un commentaire";
 }
 
 if (isset($_POST['saveComments'])) {
@@ -50,7 +50,7 @@ if (isset($_POST['saveComments'])) {
     
     $res = saveComments($pdo, $_POST["name_Client"], $_POST["content"],$_POST["note"], $id);
     if ($res) {
-        $messages[] = 'Employé enregistré';
+        $messages[] = 'Commentaire enregistré';
         
         if (!isset($_GET["id"])) {
             $comment = [

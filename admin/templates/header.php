@@ -1,16 +1,13 @@
 <?php
-
+ require_once('../lib/config.php');
+ require_once('../lib/session.php');
+ require_once('../lib/pdo.php');
 
 adminOnly();
 
-$adminMenu = [
-    'index.php' => 'Accueil',
-    'annonces.php' => 'Annonces',
-    'employes.php'=> 'Employes',
-    'services.php' => 'Services',
-    'horaires.php' => 'horaires',
-    'comment.php' => 'commentaires',
- ];
+
+ $currentPage = basename($_SERVER['SCRIPT_NAME']);
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +20,8 @@ $adminMenu = [
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stysheet" href="./assets/css/override-bootsrap.css">
-    <link rel="stysheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/override-bootsrap.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>Admin garage Parrot</title>
 </head>

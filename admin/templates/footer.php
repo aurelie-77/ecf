@@ -1,13 +1,10 @@
 <?php 
 
-
-
-
 ?>
 </main>
 </div>
 <footer class="py-3 my-4">
-    <p class="text-center">© 2023 - Admin Garage Parrot</p>
+    <p class="text-center">© 2023 - Dasboard Garage Parrot</p>
     <p class="text-center">horaires d'ouverture</p>
 
     <div class="text-center"></div>

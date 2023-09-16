@@ -39,6 +39,6 @@ if ($user) {
     </div>
     <?php } ?>
 </div>
-
+<a href="employes.php">Retour</a>
 <?php
 require_once('templates/footer.php');

@@ -28,3 +28,10 @@ h5{
 #glob{
     display:flex;
 }
+
+.search-form {
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}

@@ -39,6 +39,6 @@ if ($annonce) {
     </div>
     <?php } ?>
 </div>
-
+<a href="annonces.php">Retour</a>
 <?php
 require_once('templates/footer.php');

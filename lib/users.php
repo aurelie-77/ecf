@@ -1,5 +1,19 @@
 <?php
 
+//verif si mot de passe et user ok avec bdd//
+function verifyUserLoginPassword(PDO $pdo, string $email, string $password):array|bool
+{
+    $query = $pdo->prepare("SELECT * FROM users2 WHERE email = :email");
+    $query->bindValue(":email", $email, PDO::PARAM_STR);
+    $query->execute();
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+    
+    if ($user && password_verify($password, $user["password"])) {
+        return $user;
+    } else {
+        return false;
+    }
+}
 
 function getUsers(PDO $pdo)
 {

@@ -8,7 +8,6 @@ define("_ADMIN_ITEM_PER_PAGE_", 10);
 define("_DB_NAME_", "garage_parrot");
 define("_DB_USER_", "root");
 define("_DB_PASSWORD_", "");
-
 define("_HOME_ANNONCES_LIMIT_", 6);
 
 
@@ -24,7 +23,7 @@ $adminMenu = [
  ];
  
  $userMenu = [
-    'index.php' => 'Accueil',
+    'index2.php' => 'Accueil',
     'annonces.php' => 'Annonces',
     'comment.php' => 'commentaires',
   

@@ -12,6 +12,7 @@ $imagePath = getAnnonceImage($annonce['image']);
             </h5>
             <p class="card-text bold"><?= htmlentities(substr($annonce["price"], 0, 100)) ?></p>
             <p class="card-text"><?= htmlentities(substr($annonce["content"], 0, 100)) ?></p>
+            <p class="card-text"><?= htmlentities(substr($annonce["km"], 0, 100)) ?></p>
             <a href="annonce.php?id=<?=$annonce["id"]?>" class="btn btn-primary">Lire la suite</a>
         </div>
     </div>
