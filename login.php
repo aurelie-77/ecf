@@ -23,7 +23,7 @@ $messages = [];
         if ($user['role'] === 'user') {
             header('location: employe/index2.php'); // Redirection si l'user est un salarié
         } elseif ($user['role'] === 'null') {
-            header('location: admin/index.php');
+            header('location: employe/index2.php');
         } elseif ($user['role'] === 'admin') {
             header('location: admin/index.php'); // Redirection si l'user est un admin
         }

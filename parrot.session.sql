@@ -16,7 +16,10 @@ CREATE TABLE IF NOT EXISTS `vehicules` (
   `year` text NOT NULL,
   `content` TEXT NOT NULL,
   `image` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
+  `image1` varchar(255) DEFAULT NULL,
+  `image2` varchar(255) DEFAULT NULL,
+  `image3` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 
@@ -41,8 +44,7 @@ CREATE TABLE IF NOT EXISTS `services`(
     `name` TEXT NOT NULL, 
     `price` varchar(255) NOT NULL, 
     `text` TEXT NOT NULL, 
-    PRIMARY KEY (`id`),
-`id_users` INT REFERENCES users(id)
+    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `services` (`name`,  `price`, `text`) VALUES
@@ -80,8 +82,8 @@ CREATE TABLE IF NOT EXISTS `comments`(
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `comments` (`id`, `name_Client`, `content`, `note`, `id_user`) VALUES
-(1, 'Aurelie', 'most popular front-end open source toolkit, featuring Sass variables and mixins', '4', '1'),
+INSERT INTO `comments` (`id`, `name_Client`, `content`, `note`) VALUES
+(1, 'Aurelie', 'most popular front-end open source toolkit, featuring Sass variables and mixins', '4');
 
 
 ``

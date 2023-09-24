@@ -15,7 +15,7 @@ function adminOnly() {
         header('location: ../index.php');
     }else if($_SESSION['user']['role'] != 'admin') {
         // Rediriger vers la page de connexion
-        header("Location: ../admin/index2.php");
+        header("Location: ../employe/index2.php");
         exit();
     }
 }
